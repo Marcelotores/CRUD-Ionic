@@ -10,9 +10,9 @@ import { Observable } from 'rxjs/Observable';
 })
 export class DetalhePage {
 
+  produto: Observable<any>;
   key: string;
   PATH = '/products';
-  public produto: Observable<any>;
 
   constructor(
     public navCtrl: NavController, 
@@ -20,10 +20,10 @@ export class DetalhePage {
     public fb: AngularFireDatabase
   ) {
     this.key = this.navParams.get('key');
-    this.produto = this.getOne(this.key);
+    this.produto = this.get(this.key);
   }
 
-  getOne(key: string) {
+  get(key: string) {
     return this.fb.object(this.PATH + key).snapshotChanges()
       .map(c => {
         return { key: c.key, ...c.payload.val() };

@@ -9,24 +9,19 @@
 <ion-content padding>
 
   <ion-list>
-      <ion-item ion-item *ngFor="let produto of produtos | async">
+      <ion-item *ngFor="let produto of produtos | async">
           {{ produto.name }} <br>
           R$ {{produto.preco}}
-          <ion-icon name="refresh" item-end (click)="edit(produto)"></ion-icon>
-          <ion-icon name="trash" item-end (click)="remove(produto.key)"></ion-icon>
+          
+          <button ion-button item-end color="dark" round>
+              <ion-icon name="hammer" item-end (click)="edit(produto)"></ion-icon>
+          </button>
+          <button ion-button item-end color="danger">
+              <ion-icon name="ios-remove-circle-outline" (click)="remove(produto.key)"></ion-icon>
+          </button>
+         
       </ion-item>
 
-    <!--
-    <button ion-item *ngFor="let produto of produtos | async">
-      {{ produto.name }} 
-      R$ {{produto.preco}}
-      <button ion-button clear item-end (click)="edit(produto)">Editar</button>
-      <button ion-button clear item-end (click)="remove(produto.key)">
-          
-      </button>
-      
-    </button>
-  -->
   </ion-list>
 
   <button ion-button color="secondary" outline (click)="novoProduto()" block large>Novo Produto</button>

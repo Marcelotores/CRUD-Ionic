@@ -29,7 +29,7 @@ export class HomePage {
     this.navCtrl.push(DetalhePage, {key: key});
   }
 
-  edit(produto: any) {
+  edit(produto: string) {
     this.navCtrl.push(EditPage, {produto: produto});
   }
 
