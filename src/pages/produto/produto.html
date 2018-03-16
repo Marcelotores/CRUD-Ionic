@@ -1,0 +1,36 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>produto</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+
+
+
+<ion-content padding>
+
+  <form (ngSubmit)="submeter()" [formGroup]="formulario">
+
+    <ion-list>
+        <ion-item>
+            <ion-label stacked>Produto</ion-label>
+        <ion-input type="text" formControlName="name" placeholder="Produto"></ion-input>
+    </ion-item>
+
+      <ion-item>
+          <ion-label stacked>Preço</ion-label>
+        <ion-input type="text" formControlName="preco" placeholder="Preço"></ion-input>
+      </ion-item>
+
+      <br>
+
+      <button ion-button block color="secondary">Salvar</button>
+
+    </ion-list>
+
+  </form>
+
+</ion-content>

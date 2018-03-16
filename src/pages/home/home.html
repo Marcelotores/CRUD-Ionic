@@ -1,14 +1,34 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Estoque
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+  <ion-list>
+      <ion-item ion-item *ngFor="let produto of produtos | async">
+          {{ produto.name }} <br>
+          R$ {{produto.preco}}
+          <ion-icon name="refresh" item-end (click)="edit(produto)"></ion-icon>
+          <ion-icon name="trash" item-end (click)="remove(produto.key)"></ion-icon>
+      </ion-item>
+
+    <!--
+    <button ion-item *ngFor="let produto of produtos | async">
+      {{ produto.name }} 
+      R$ {{produto.preco}}
+      <button ion-button clear item-end (click)="edit(produto)">Editar</button>
+      <button ion-button clear item-end (click)="remove(produto.key)">
+          
+      </button>
+      
+    </button>
+  -->
+  </ion-list>
+
+  <button ion-button color="secondary" outline (click)="novoProduto()" block large>Novo Produto</button>
+  
 </ion-content>
